@@ -1,0 +1,78 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CharArray
+{
+    class Program
+    {
+        public static void PrintCharArr(char[] arr)
+        {
+            for(int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i]);
+            }
+        }
+        public static string CharArrayToString(char[] arr)
+        {
+            string str="";
+            for (int i = 0; i < arr.Length; i++)
+            {
+                str += arr[i];
+            }
+            return str;
+        }
+        public static int IndexOfStr(char[] s1, char[] s2)
+        {
+            int index = 0;
+            for(int i = 0; i < s1.Length; i++)
+            {
+                int j = 0;
+                if (s1[i] == s2[j]) {
+                    int vrindex = i;
+                    while (s1[i] == s2[j])
+                    {
+                        j++;
+                        i += j;
+                        if (s2.Length == j)
+                        {
+                            index = vrindex;
+                            break;
+                        }
+                    }
+                    i--;
+                }
+                    
+            }
+            return index;
+        }
+        public static void TestIndexSym()
+        {
+            char[] str1, str2;
+            str1 = "рококо".ToCharArray();
+            int find, lind;
+            find = Array.IndexOf(str1, 'о');
+            lind = Array.LastIndexOf(str1, 'о');
+            Console.WriteLine("Индексы вхождения о в рококо:{0},{1};", find, lind);
+            str2 = "рок".ToCharArray();
+            find = IndexOfStr(str1, str2);
+            Console.WriteLine("Индекс первого вхождения рок в рококо:{0}", find);
+        }
+
+        static void Main(string[] args)
+        {
+            //char[] str1 = "Hello, World";
+            char[] str1 = { 'H', 'e', 'l', 'l', 'o', ',', 'W', 'o', 'r', 'l', 'd' };
+            string str2 = "Здравствуй Мир!";
+            PrintCharArr(str1);
+            Console.WriteLine();
+            Console.WriteLine(CharArrayToString(str1));
+            char[] str3 = { 'l', 'o' };
+            Console.WriteLine(IndexOfStr(str1, str3));
+            TestIndexSym();
+            
+        }
+    }
+}

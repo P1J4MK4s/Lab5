@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SplitJoin
+{
+    class Program
+    {
+        static public void Foo(string str)
+        {
+            string[] SimpleSentences, Words;
+            SimpleSentences = str.Split(',');
+            for (int i = 0; i < SimpleSentences.Length; i++)
+            {
+
+                Words = SimpleSentences[i].Split(' ');
+                string newstring ="";
+                for (int j = 0; j < Words.Length; j++)
+                {
+                    Console.WriteLine(Words[j]);
+                    newstring = String.Join(" ", Words);
+                }
+                Console.WriteLine(newstring);
+                
+                
+            }
+            for (int i = 0; i < SimpleSentences.Length; i++)
+            {
+                Console.WriteLine(SimpleSentences[i]);
+            }
+        }
+        static void Main(string[] args)
+        {
+            string stroka = "Words are insane,but sentenses are simple";
+            Foo(stroka);
+        }
+    }
+}

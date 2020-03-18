@@ -1,0 +1,78 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StringExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str1 = "Строка №1";
+            string str2 = new string('s', 5);
+            char[] charray = { 't', 'e', 's', 't' };
+            string str3 = new string(charray);
+            str1 = str2;
+            bool a = str1 == str2;
+            bool b = str1 != str2;
+            string sumstr = str1 + str2;
+            char simb = sumstr[3];
+            string test1 = "acv(CopyPls)fewf(ewfwef";
+            string result = "";
+            bool flag = false;
+            string buffer = "";
+            for (int i = 0; i < test1.Length; i++)
+            {
+
+                if (test1[i] == '(') { flag = true; }
+                if (test1[i] == ')' && flag == true)
+                {
+                    result += buffer;
+                    flag = false;
+                }
+                if (flag == true && test1[i] != '(') { buffer += test1[i]; }
+
+            }
+            Console.WriteLine(result);
+
+            string test2 = "ImNotstudent,im a stud...";
+            string result2 = "";
+            for (int i = 0; i < test2.Length; i++)
+            {
+                if (test2[i] == 's')
+                {
+                    if (test2[i + 1] == 't')
+                    {
+                        if (test2[i + 2] == 'u')
+                        {
+                            if (test2[i + 3] == 'd')
+                            {
+                                if (test2[i + 4] == 'e')
+                                {
+                                    if (test2[i + 5] == 'n')
+                                    {
+                                        if (test2[i + 6] == 't') i = i + 6;
+                                    }
+                                    else result2 += 's';
+                                }
+                                else result2 += 's';
+                            }
+                            else result2 += 's';
+                        }
+                        else result2 += 's';
+                    }
+                    else result2 += 's';
+                }
+                else
+                {
+                    result2 += test2[i];
+                }
+
+            }
+            Console.WriteLine(result2);
+
+        }
+    }
+}

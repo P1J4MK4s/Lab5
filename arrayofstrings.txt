@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ArrayOfStrings
+{
+    class Program
+    {
+        static void SumInWords(int chislo)
+        {
+            string[] edinici = { "ноль", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять" };
+            string[] desyatki = {" ", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "деяносто"};
+            string[] sotni = { " ", "сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот", "восемьсот", "девятьсот" };
+            string[] tisyachi = { " ", "одна тысяча", "две тысячи", "три тысячи", " четыре тысячи", " пять тысяч ", "шесть тысяч", "семь тысяч", "восемь тысяч", "девять тысяч" };
+            int ediniciInt = chislo % 10;
+            int desyatkiItn = chislo % 100 / 10;
+            int sotniInt = chislo / 100 % 10;
+            int tisyachiInt = chislo / 1000;
+            string result = tisyachi[tisyachiInt] +" "+ sotni[sotniInt] +" "+ desyatki[desyatkiItn] +" "+ edinici[ediniciInt];
+            Console.WriteLine(result);
+
+        }
+        static void Main(string[] args)
+        {
+            SumInWords(0);
+        }
+    }
+}

@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ExampleSreingBuilder
+{
+    class Program
+    {
+        public static void TestStringBuilding()
+        {
+            StringBuilder str1 = new StringBuilder("String - example of StringBuilder");
+            string str2 = "String - example of string";
+            StringBuilder str1copy = str1;
+            string str2copy = str2;
+            bool a, b, c, d;
+            a = str1 == str1copy;
+            b = str2 == str2copy;
+            c = str1 != str1copy;
+            d = str2 != str2copy;
+            char k = str1[5];
+            char j = str2[5];
+            str1.Append(str1copy);
+            str2 += str2copy;
+            
+        }
+        static void Main(string[] args)
+        {
+            StringBuilder string1 = new StringBuilder("Im am");
+            StringBuilder name1 = new StringBuilder(" Max");
+            StringBuilder name2 = new StringBuilder(" Pijevskiy");
+            string1.Append(name1);
+            Console.WriteLine(string1);
+            string1.Insert(9,name2);
+            Console.WriteLine(string1);
+            int num = 0;
+            var sub = "-_--__-";
+            for (int i = 0; i < 4; i++)
+            {
+                string1.AppendFormat(" {0}: {1} ", num++, sub);
+            }
+            Console.WriteLine(string1);
+            Console.WriteLine(string1.Capacity);
+            Console.WriteLine(string1.MaxCapacity);
+            string1.EnsureCapacity(1001);
+            Console.WriteLine(string1.Capacity);
+        }
+    }
+}
